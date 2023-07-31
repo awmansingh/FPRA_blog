@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "myblog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nFirst File\n\n\n\n\n\nTesting Quarto\n\n\n\n\n\n\nJul 30, 2023\n\n\nAman Singh\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 28, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Final Project Related Assignment\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nJul 31, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nJul 28, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -12,6 +12,34 @@
     "title": "Post With Code",
     "section": "",
     "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "posts/Final_Project_Assignment.html",
+    "href": "posts/Final_Project_Assignment.html",
+    "title": "Final Project Related Assignment",
+    "section": "",
+    "text": "# Description of data, link to sources of data, motivation for looking at the data,\n# and question(s) you are seeking to address"
+  },
+  {
+    "objectID": "posts/Final_Project_Assignment.html#introduction",
+    "href": "posts/Final_Project_Assignment.html#introduction",
+    "title": "Final Project Related Assignment",
+    "section": "",
+    "text": "# Description of data, link to sources of data, motivation for looking at the data,\n# and question(s) you are seeking to address"
+  },
+  {
+    "objectID": "posts/Final_Project_Assignment.html#exploring-the-data",
+    "href": "posts/Final_Project_Assignment.html#exploring-the-data",
+    "title": "Final Project Related Assignment",
+    "section": "Exploring the Data",
+    "text": "Exploring the Data\n\n# This section does not need to be polished yet, but it should be a good foundation\n# This can include summary information about the data, summary statistics where appropriate, an identification of where there may be missing/incorrect/outlier data, and data preprocessing\n# It should include at least 4 exploratory data visualizations"
+  },
+  {
+    "objectID": "posts/Final_Project_Assignment.html#data-analysis",
+    "href": "posts/Final_Project_Assignment.html#data-analysis",
+    "title": "Final Project Related Assignment",
+    "section": "Data Analysis",
+    "text": "Data Analysis\n\n# This section also does not need to be polished yet, but it should be a good foundation\n# This should include code for data analysis directly relevant to your question(s) of interest\n# Include an additional 4 data visualizations that are directly relevant to your topic \n    # Or describe 4 data visualizations that you want to make"
   },
   {
     "objectID": "posts/welcome/index.html",
