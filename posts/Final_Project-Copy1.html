@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Aman Singh">
+<meta name="dcterms.date" content="2023-07-26">
+<meta name="description" content="Data Analysis">
+
+<title>myblog - Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">myblog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Final Project</h1>
+                  <div>
+        <div class="description">
+          Data Analysis
+        </div>
+      </div>
+                </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Aman Singh </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 26, 2023</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">August 6, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="dh-140-final-project" class="level1">
+<h1>DH 140: Final Project</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The following project was constructed using the “Sexual Orientation and Gender-Identity (SOGI) Laws That Support and/or Limit International Development” dataset created by Thomas S. Serwatka from the University of North Florida’s Digital Commons. This dataset offers a plethora of information about 185 countries’ sexual orientation and gender identity legal index (SOGI-LI). The index is calculated based on variables identified in the dataset, such as examining the legality of same-sex sexual activity in a country, marriage &amp; civil union, serving in the military, and gender ID markers, to name a few. The higher the score for the SOGI-LI index, the more rights and personal freedoms a person is guaranteed, and people are less bound by legal ramifications to freely and safely express their sexual orientation and gender identity. The SOGI-LI index aims to assess if each country’s laws assist international development and allow people of different gender identities to move freely and safely without oppressive legal restrictions – that is, as equal members of society. This project centers on the worldwide examination of LGBTQ+ rights and its relationship to related human rights topics, such as religious freedoms and democracy. The primary objective of this analysis is to ascertain the influence of a nation’s democratic representation and levels of religiosity on the broader scope of sexual and gender freedoms within the LGBTQ+ community.</p>
+<p>Research Question(s): 1. How is the legality of sexual orientation and gender identity expression affected by a country’s democracy level? 2. How does the presence of increased sexual and gender freedoms (SOGI) compare to religiosity?</p>
+<p>The broader themes of this project are surrounding sexual orientation and gender identity (SOGI), quality of life, and other personal freedoms. The impact of sexual and gender freedoms on the quality of life and other personal freedoms refers to how the recognition and protection of an individual’s sexuality and gender orientation directly influence their general well-being, social inclusion, mental health, and life satisfaction. I wish to explore this dataset because it encompasses issues surrounding legal rights, social acceptance, and freedom from discrimination and violence based on sexuality and gender orientation. Individuals who can exist and move in this world safely while expressing their sexual orientation and gender identity will have better life satifaction. Freedom of sexual and gender expression can positively affect mental, physical, and social health. By examining variables like a country’s democracy and religiosity, we can explore how these complex influences determine personal freedoms and directly influence the presence of SOGILI scores. Prior to conducting data analysis, I hypothesize that nations characterized by greater levels of democracy will exhibit a heightened legality of sexual orientation and gender expression in contrast to countries with lower democratic indicators. Finally, I hypothesize that elevated levels of religiosity within a country correspond to decreased sexual and gender freedoms than countries with a less pronounced religious influence.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<section id="brief-data-summary" class="level3">
+<h3 class="anchored" data-anchor-id="brief-data-summary">Brief Data Summary:</h3>
+<ul>
+<li>The data was published in 2020</li>
+<li>The dataset was based around a sexual orientation and gender identity legal index that was developed for 185 countries</li>
+<li>Variables examined in the dataset include: SOGI-LI, Religiosity, legality of sam-sex sexual-activity, DEMOC., and Happiness</li>
+<li>Dataset used: Cleaned_SOGILI_Data.csv accessed from https://digitalcommons.unf.edu/datasets/1/</li>
+<li>The data analysis was conducted using the pandas, matplotlib, and numpy packages in Python</li>
+</ul>
+</section>
+<section id="exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>First, the cleaned dataset containing the 185 rows and 30 columns was loaded in.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Cleaned_SOGILI_Data.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">Predom. Religion</th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">Per capita GDP</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Religiosity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>africa</td>
+<td>Zimbabwe</td>
+<td>C</td>
+<td>0.42</td>
+<td>3.16</td>
+<td>3.692</td>
+<td>$2,147.00</td>
+<td>0.38</td>
+<td>2.8</td>
+<td>88.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>2.50</td>
+<td>3.24</td>
+<td>1.151</td>
+<td>1.479</td>
+<td>0.599</td>
+<td>0.399</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>africa</td>
+<td>Zambia</td>
+<td>C</td>
+<td>0.97</td>
+<td>5.61</td>
+<td>4.377</td>
+<td>$1,539.90</td>
+<td>0.49</td>
+<td>3.2</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.493</td>
+<td>1.048</td>
+<td>0.454</td>
+<td>0.504</td>
+<td>0.352</td>
+<td>0.055</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>asia</td>
+<td>Yemen</td>
+<td>M</td>
+<td>0.56</td>
+<td>1.95</td>
+<td>3.355</td>
+<td>$944.41</td>
+<td>1.50</td>
+<td>4.7</td>
+<td>99.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>3.24</td>
+<td>0.357</td>
+<td>1.094</td>
+<td>0.248</td>
+<td>0.406</td>
+<td>0.132</td>
+<td>0.099</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>asia</td>
+<td>Vietnam</td>
+<td>X</td>
+<td>3.89</td>
+<td>3.08</td>
+<td>5.103</td>
+<td>$2,563.82</td>
+<td>3.27</td>
+<td>7.6</td>
+<td>30.0</td>
+<td>...</td>
+<td>3.21</td>
+<td>3.75</td>
+<td>4.41</td>
+<td>0.689</td>
+<td>1.172</td>
+<td>0.048</td>
+<td>0.462</td>
+<td>0.201</td>
+<td>0.032</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>america</td>
+<td>Venezuela</td>
+<td>C</td>
+<td>2.83</td>
+<td>3.16</td>
+<td>4.806</td>
+<td>NaN</td>
+<td>2.96</td>
+<td>3.9</td>
+<td>79.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>5.00</td>
+<td>2.94</td>
+<td>0.985</td>
+<td>1.350</td>
+<td>0.553</td>
+<td>0.496</td>
+<td>0.116</td>
+<td>0.148</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">179</td>
+<td>africa</td>
+<td>Angola</td>
+<td>C</td>
+<td>3.39</td>
+<td>3.62</td>
+<td>3.795</td>
+<td>$3,432.39</td>
+<td>NaN</td>
+<td>4.1</td>
+<td>88.0</td>
+<td>...</td>
+<td>5.56</td>
+<td>8.75</td>
+<td>10.00</td>
+<td>1.330</td>
+<td>1.532</td>
+<td>0.896</td>
+<td>0.653</td>
+<td>0.321</td>
+<td>0.291</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">180</td>
+<td>europe</td>
+<td>Andorra</td>
+<td>C</td>
+<td>5.28</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$42,029.76</td>
+<td>NaN</td>
+<td>2.4</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>10.00</td>
+<td>9.41</td>
+<td>1.355</td>
+<td>1.501</td>
+<td>0.913</td>
+<td>0.659</td>
+<td>0.285</td>
+<td>0.383</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">181</td>
+<td>africa</td>
+<td>Algeria</td>
+<td>M</td>
+<td>1.39</td>
+<td>3.50</td>
+<td>5.295</td>
+<td>$4,278.85</td>
+<td>6.66</td>
+<td>8.0</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>9.38</td>
+<td>9.12</td>
+<td>1.351</td>
+<td>1.590</td>
+<td>0.868</td>
+<td>0.683</td>
+<td>0.284</td>
+<td>0.408</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">182</td>
+<td>europe</td>
+<td>Albania</td>
+<td>M</td>
+<td>4.72</td>
+<td>5.98</td>
+<td>4.586</td>
+<td>$5,253.63</td>
+<td>0.93</td>
+<td>1.6</td>
+<td>39.0</td>
+<td>...</td>
+<td>5.56</td>
+<td>8.13</td>
+<td>9.12</td>
+<td>1.301</td>
+<td>1.559</td>
+<td>0.883</td>
+<td>0.533</td>
+<td>0.354</td>
+<td>0.272</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">183</td>
+<td>asia</td>
+<td>Afghanistan</td>
+<td>M</td>
+<td>0.56</td>
+<td>2.97</td>
+<td>3.632</td>
+<td>$520.90</td>
+<td>NaN</td>
+<td>6.5</td>
+<td>97.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>5.63</td>
+<td>8.53</td>
+<td>1.293</td>
+<td>1.466</td>
+<td>0.908</td>
+<td>0.520</td>
+<td>0.098</td>
+<td>0.176</td>
+<td>religious</td>
+</tr>
+</tbody>
+</table>
+
+<p>184 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<p>Next, I decided to display the column names for better viewing purposes.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>Index(['continent', 'country', 'Predom. Religion', 'SOGI-LI', 'DEMOC.',
+       'HAPPINESS', 'Per capita GDP', '% with tertiary educ.', 'GRI',
+       'Religiosity', 'SHI', 'legality of sam-sex sexual-activity',
+       'marriage/ civil unions', 'same-sex coupleadoptions',
+       'serving in the military', 'antidiscrimination laws',
+       'gender ID markers', 'Democracy Status',
+       'electoral process and pluralism', 'funct. Of gov',
+       'polit. Particpation', 'political culture', 'civil liberties',
+       'Satisfaction with GDP per capita', 'Social support',
+       'Healthy life expectancy', 'Freedom to make life choices', 'Generosity',
+       'Perceptions of corruption', 'Religiosity Level'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.describe(include <span class="op">=</span> <span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">Predom. Religion</th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">Per capita GDP</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Religiosity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>184</td>
+<td>184</td>
+<td>184</td>
+<td>184.000000</td>
+<td>158.000000</td>
+<td>144.000000</td>
+<td>170</td>
+<td>135.000000</td>
+<td>174.000000</td>
+<td>141.000000</td>
+<td>...</td>
+<td>158.000000</td>
+<td>158.000000</td>
+<td>158.000000</td>
+<td>144.000000</td>
+<td>144.000000</td>
+<td>144.000000</td>
+<td>144.000000</td>
+<td>144.000000</td>
+<td>143.000000</td>
+<td>184</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">unique</td>
+<td>5</td>
+<td>184</td>
+<td>7</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>170</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">top</td>
+<td>asia</td>
+<td>Zimbabwe</td>
+<td>C</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$2,147.00</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">freq</td>
+<td>48</td>
+<td>1</td>
+<td>109</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>105</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.714783</td>
+<td>5.552342</td>
+<td>5.423583</td>
+<td>NaN</td>
+<td>8.434593</td>
+<td>3.347126</td>
+<td>72.914894</td>
+<td>...</td>
+<td>5.294810</td>
+<td>5.628481</td>
+<td>5.882975</td>
+<td>0.908007</td>
+<td>1.220715</td>
+<td>0.609410</td>
+<td>0.460187</td>
+<td>0.181313</td>
+<td>0.114811</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">std</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2.815376</td>
+<td>2.199503</td>
+<td>1.131189</td>
+<td>NaN</td>
+<td>7.277153</td>
+<td>2.149491</td>
+<td>25.057502</td>
+<td>...</td>
+<td>1.870384</td>
+<td>1.640903</td>
+<td>2.647954</td>
+<td>0.392075</td>
+<td>0.306274</td>
+<td>0.243671</td>
+<td>0.160375</td>
+<td>0.100962</td>
+<td>0.099499</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">min</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.140000</td>
+<td>1.430000</td>
+<td>2.905000</td>
+<td>NaN</td>
+<td>0.000000</td>
+<td>0.200000</td>
+<td>16.000000</td>
+<td>...</td>
+<td>1.110000</td>
+<td>1.880000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.390000</td>
+<td>3.595000</td>
+<td>4.467250</td>
+<td>NaN</td>
+<td>2.045000</td>
+<td>1.625000</td>
+<td>50.000000</td>
+<td>...</td>
+<td>3.890000</td>
+<td>4.380000</td>
+<td>3.530000</td>
+<td>0.655750</td>
+<td>1.066750</td>
+<td>0.439000</td>
+<td>0.358250</td>
+<td>0.107500</td>
+<td>0.050500</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2.640000</td>
+<td>5.740000</td>
+<td>5.451000</td>
+<td>NaN</td>
+<td>6.650000</td>
+<td>2.850000</td>
+<td>83.000000</td>
+<td>...</td>
+<td>5.560000</td>
+<td>5.630000</td>
+<td>6.180000</td>
+<td>0.970000</td>
+<td>1.280000</td>
+<td>0.667500</td>
+<td>0.497500</td>
+<td>0.173500</td>
+<td>0.082000</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.697500</td>
+<td>7.237500</td>
+<td>6.272500</td>
+<td>NaN</td>
+<td>13.285000</td>
+<td>4.400000</td>
+<td>94.000000</td>
+<td>...</td>
+<td>6.670000</td>
+<td>6.250000</td>
+<td>8.240000</td>
+<td>1.212250</td>
+<td>1.469500</td>
+<td>0.786250</td>
+<td>0.580750</td>
+<td>0.239000</td>
+<td>0.143000</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">max</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>10.000000</td>
+<td>9.870000</td>
+<td>7.632000</td>
+<td>NaN</td>
+<td>30.040000</td>
+<td>8.400000</td>
+<td>100.000000</td>
+<td>...</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>2.096000</td>
+<td>1.644000</td>
+<td>1.030000</td>
+<td>0.724000</td>
+<td>0.598000</td>
+<td>0.457000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>11 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<p>The data frame above allows me to examine summary statistics for each numeric column. Moreover, it will enable me to identify potential outliers and unusual patterns or identify missing values from columns. For example, I can tell that there are a certain number of missing or unidentified values located in the ‘Religiosity’ column from the “NaN” values for “unique,” “top,” and “freq.” Moreover, ‘Religiosity’ for each continent tends to range from 25 to 100, with an average of 70.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'SOGI-LI'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>count    184.000000
+mean       3.714783
+std        2.815376
+min        0.140000
+25%        1.390000
+50%        2.640000
+75%        5.697500
+max       10.000000
+Name: SOGI-LI, dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.sort_values(by<span class="op">=</span><span class="st">'SOGI-LI'</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>              ignore_index<span class="op">=</span><span class="va">True</span>).loc[<span class="dv">0</span>:<span class="dv">184</span>, <span class="st">'SOGI-LI'</span>].plot(kind<span class="op">=</span><span class="st">'box'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Here the boxplot displays the intequartile range with the median closer to lower Q1. That is, the distribution is positively skewed for SOGI-LI scores, also indicating no outliers outside the interquartile range above the upper quartile and below the lower quartile.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">Predom. Religion</th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">Per capita GDP</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Religiosity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>africa</td>
+<td>Zimbabwe</td>
+<td>C</td>
+<td>0.42</td>
+<td>3.16</td>
+<td>3.692</td>
+<td>$2,147.00</td>
+<td>0.38</td>
+<td>2.8</td>
+<td>88.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>2.50</td>
+<td>3.24</td>
+<td>1.151</td>
+<td>1.479</td>
+<td>0.599</td>
+<td>0.399</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>africa</td>
+<td>Zambia</td>
+<td>C</td>
+<td>0.97</td>
+<td>5.61</td>
+<td>4.377</td>
+<td>$1,539.90</td>
+<td>0.49</td>
+<td>3.2</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.493</td>
+<td>1.048</td>
+<td>0.454</td>
+<td>0.504</td>
+<td>0.352</td>
+<td>0.055</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>asia</td>
+<td>Yemen</td>
+<td>M</td>
+<td>0.56</td>
+<td>1.95</td>
+<td>3.355</td>
+<td>$944.41</td>
+<td>1.50</td>
+<td>4.7</td>
+<td>99.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>3.24</td>
+<td>0.357</td>
+<td>1.094</td>
+<td>0.248</td>
+<td>0.406</td>
+<td>0.132</td>
+<td>0.099</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>asia</td>
+<td>Vietnam</td>
+<td>X</td>
+<td>3.89</td>
+<td>3.08</td>
+<td>5.103</td>
+<td>$2,563.82</td>
+<td>3.27</td>
+<td>7.6</td>
+<td>30.0</td>
+<td>...</td>
+<td>3.21</td>
+<td>3.75</td>
+<td>4.41</td>
+<td>0.689</td>
+<td>1.172</td>
+<td>0.048</td>
+<td>0.462</td>
+<td>0.201</td>
+<td>0.032</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>america</td>
+<td>Venezuela</td>
+<td>C</td>
+<td>2.83</td>
+<td>3.16</td>
+<td>4.806</td>
+<td>NaN</td>
+<td>2.96</td>
+<td>3.9</td>
+<td>79.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>5.00</td>
+<td>2.94</td>
+<td>0.985</td>
+<td>1.350</td>
+<td>0.553</td>
+<td>0.496</td>
+<td>0.116</td>
+<td>0.148</td>
+<td>religious</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 184 entries, 0 to 183
+Data columns (total 30 columns):
+ #   Column                               Non-Null Count  Dtype  
+---  ------                               --------------  -----  
+ 0   continent                            184 non-null    object 
+ 1   country                              184 non-null    object 
+ 2   Predom. Religion                     184 non-null    object 
+ 3   SOGI-LI                              184 non-null    float64
+ 4   DEMOC.                               158 non-null    float64
+ 5   HAPPINESS                            144 non-null    float64
+ 6   Per capita GDP                       170 non-null    object 
+ 7   % with tertiary educ.                135 non-null    float64
+ 8   GRI                                  174 non-null    float64
+ 9   Religiosity                          141 non-null    float64
+ 10  SHI                                  174 non-null    float64
+ 11  legality of sam-sex sexual-activity  182 non-null    float64
+ 12  marriage/ civil unions               184 non-null    float64
+ 13  same-sex coupleadoptions             184 non-null    float64
+ 14  serving in the military              184 non-null    float64
+ 15  antidiscrimination laws              184 non-null    float64
+ 16  gender ID markers                    184 non-null    float64
+ 17  Democracy Status                     158 non-null    object 
+ 18  electoral process and pluralism      158 non-null    float64
+ 19  funct. Of gov                        157 non-null    float64
+ 20  polit. Particpation                  158 non-null    float64
+ 21  political culture                    158 non-null    float64
+ 22  civil liberties                      158 non-null    float64
+ 23  Satisfaction with GDP per capita     144 non-null    float64
+ 24  Social support                       144 non-null    float64
+ 25  Healthy life expectancy              144 non-null    float64
+ 26  Freedom to make life choices         144 non-null    float64
+ 27  Generosity                           144 non-null    float64
+ 28  Perceptions of corruption            143 non-null    float64
+ 29  Religiosity Level                    184 non-null    object 
+dtypes: float64(24), object(6)
+memory usage: 43.2+ KB</code></pre>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_records_dropped <span class="op">=</span> df.dropna(axis<span class="op">=</span><span class="dv">0</span>, how<span class="op">=</span><span class="st">'any'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_records_dropped.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 75 entries, 0 to 182
+Data columns (total 30 columns):
+ #   Column                               Non-Null Count  Dtype  
+---  ------                               --------------  -----  
+ 0   continent                            75 non-null     object 
+ 1   country                              75 non-null     object 
+ 2   Predom. Religion                     75 non-null     object 
+ 3   SOGI-LI                              75 non-null     float64
+ 4   DEMOC.                               75 non-null     float64
+ 5   HAPPINESS                            75 non-null     float64
+ 6   Per capita GDP                       75 non-null     object 
+ 7   % with tertiary educ.                75 non-null     float64
+ 8   GRI                                  75 non-null     float64
+ 9   Religiosity                          75 non-null     float64
+ 10  SHI                                  75 non-null     float64
+ 11  legality of sam-sex sexual-activity  75 non-null     float64
+ 12  marriage/ civil unions               75 non-null     float64
+ 13  same-sex coupleadoptions             75 non-null     float64
+ 14  serving in the military              75 non-null     float64
+ 15  antidiscrimination laws              75 non-null     float64
+ 16  gender ID markers                    75 non-null     float64
+ 17  Democracy Status                     75 non-null     object 
+ 18  electoral process and pluralism      75 non-null     float64
+ 19  funct. Of gov                        75 non-null     float64
+ 20  polit. Particpation                  75 non-null     float64
+ 21  political culture                    75 non-null     float64
+ 22  civil liberties                      75 non-null     float64
+ 23  Satisfaction with GDP per capita     75 non-null     float64
+ 24  Social support                       75 non-null     float64
+ 25  Healthy life expectancy              75 non-null     float64
+ 26  Freedom to make life choices         75 non-null     float64
+ 27  Generosity                           75 non-null     float64
+ 28  Perceptions of corruption            75 non-null     float64
+ 29  Religiosity Level                    75 non-null     object 
+dtypes: float64(24), object(6)
+memory usage: 18.2+ KB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_records_dropped</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">Predom. Religion</th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">Per capita GDP</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Religiosity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>africa</td>
+<td>Zimbabwe</td>
+<td>C</td>
+<td>0.42</td>
+<td>3.16</td>
+<td>3.692</td>
+<td>$2,147.00</td>
+<td>0.38</td>
+<td>2.8</td>
+<td>88.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>2.50</td>
+<td>3.24</td>
+<td>1.151</td>
+<td>1.479</td>
+<td>0.599</td>
+<td>0.399</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>africa</td>
+<td>Zambia</td>
+<td>C</td>
+<td>0.97</td>
+<td>5.61</td>
+<td>4.377</td>
+<td>$1,539.90</td>
+<td>0.49</td>
+<td>3.2</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.493</td>
+<td>1.048</td>
+<td>0.454</td>
+<td>0.504</td>
+<td>0.352</td>
+<td>0.055</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>asia</td>
+<td>Yemen</td>
+<td>M</td>
+<td>0.56</td>
+<td>1.95</td>
+<td>3.355</td>
+<td>$944.41</td>
+<td>1.50</td>
+<td>4.7</td>
+<td>99.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>3.24</td>
+<td>0.357</td>
+<td>1.094</td>
+<td>0.248</td>
+<td>0.406</td>
+<td>0.132</td>
+<td>0.099</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>america</td>
+<td>Uruguay</td>
+<td>C</td>
+<td>8.50</td>
+<td>8.38</td>
+<td>6.379</td>
+<td>$17,277.97</td>
+<td>3.50</td>
+<td>1.1</td>
+<td>41.0</td>
+<td>...</td>
+<td>6.11</td>
+<td>2.50</td>
+<td>3.82</td>
+<td>0.332</td>
+<td>0.537</td>
+<td>0.255</td>
+<td>0.085</td>
+<td>0.191</td>
+<td>0.036</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>europe</td>
+<td>United Kingdom</td>
+<td>C</td>
+<td>10.00</td>
+<td>8.53</td>
+<td>6.814</td>
+<td>$42,491.36</td>
+<td>15.31</td>
+<td>2.6</td>
+<td>27.0</td>
+<td>...</td>
+<td>8.33</td>
+<td>5.00</td>
+<td>0.88</td>
+<td>0.442</td>
+<td>1.073</td>
+<td>0.343</td>
+<td>0.244</td>
+<td>0.083</td>
+<td>0.064</td>
+<td>nonreligious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">173</td>
+<td>europe</td>
+<td>Austria</td>
+<td>C</td>
+<td>9.17</td>
+<td>8.29</td>
+<td>7.139</td>
+<td>$51,512.91</td>
+<td>9.37</td>
+<td>4.2</td>
+<td>55.0</td>
+<td>...</td>
+<td>8.33</td>
+<td>8.13</td>
+<td>10.00</td>
+<td>1.268</td>
+<td>1.601</td>
+<td>0.876</td>
+<td>0.669</td>
+<td>0.365</td>
+<td>0.389</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">174</td>
+<td>oceana</td>
+<td>Australia</td>
+<td>C</td>
+<td>9.17</td>
+<td>9.09</td>
+<td>7.272</td>
+<td>$57,305.30</td>
+<td>18.52</td>
+<td>1.1</td>
+<td>32.0</td>
+<td>...</td>
+<td>7.78</td>
+<td>8.75</td>
+<td>10.00</td>
+<td>1.340</td>
+<td>1.573</td>
+<td>0.910</td>
+<td>0.647</td>
+<td>0.361</td>
+<td>0.302</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">177</td>
+<td>america</td>
+<td>Argentina</td>
+<td>C</td>
+<td>8.17</td>
+<td>7.02</td>
+<td>6.388</td>
+<td>$11,652.57</td>
+<td>2.87</td>
+<td>2.7</td>
+<td>65.0</td>
+<td>...</td>
+<td>6.11</td>
+<td>6.88</td>
+<td>8.53</td>
+<td>1.200</td>
+<td>1.532</td>
+<td>0.737</td>
+<td>0.553</td>
+<td>0.086</td>
+<td>0.174</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">181</td>
+<td>africa</td>
+<td>Algeria</td>
+<td>M</td>
+<td>1.39</td>
+<td>3.50</td>
+<td>5.295</td>
+<td>$4,278.85</td>
+<td>6.66</td>
+<td>8.0</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>9.38</td>
+<td>9.12</td>
+<td>1.351</td>
+<td>1.590</td>
+<td>0.868</td>
+<td>0.683</td>
+<td>0.284</td>
+<td>0.408</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">182</td>
+<td>europe</td>
+<td>Albania</td>
+<td>M</td>
+<td>4.72</td>
+<td>5.98</td>
+<td>4.586</td>
+<td>$5,253.63</td>
+<td>0.93</td>
+<td>1.6</td>
+<td>39.0</td>
+<td>...</td>
+<td>5.56</td>
+<td>8.13</td>
+<td>9.12</td>
+<td>1.301</td>
+<td>1.559</td>
+<td>0.883</td>
+<td>0.533</td>
+<td>0.354</td>
+<td>0.272</td>
+<td>nonreligious</td>
+</tr>
+</tbody>
+</table>
+
+<p>75 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_records_dropped.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">SHI</th>
+<th data-quarto-table-cell-role="th">legality of sam-sex sexual-activity</th>
+<th data-quarto-table-cell-role="th">marriage/ civil unions</th>
+<th data-quarto-table-cell-role="th">same-sex coupleadoptions</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">funct. Of gov</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>...</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+<td>75.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>4.604667</td>
+<td>6.030400</td>
+<td>5.514827</td>
+<td>7.924267</td>
+<td>3.330667</td>
+<td>71.906667</td>
+<td>3.016000</td>
+<td>0.791067</td>
+<td>0.451067</td>
+<td>0.310000</td>
+<td>...</td>
+<td>5.431600</td>
+<td>5.622667</td>
+<td>5.436000</td>
+<td>5.557600</td>
+<td>0.883427</td>
+<td>1.231107</td>
+<td>0.598520</td>
+<td>0.454733</td>
+<td>0.193813</td>
+<td>0.112440</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>3.137432</td>
+<td>2.001044</td>
+<td>1.216339</td>
+<td>6.279161</td>
+<td>2.046683</td>
+<td>25.986573</td>
+<td>2.255207</td>
+<td>0.334904</td>
+<td>0.342355</td>
+<td>0.424821</td>
+<td>...</td>
+<td>2.423144</td>
+<td>1.728145</td>
+<td>1.656555</td>
+<td>2.753206</td>
+<td>0.372648</td>
+<td>0.319256</td>
+<td>0.239778</td>
+<td>0.169129</td>
+<td>0.098344</td>
+<td>0.091634</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.140000</td>
+<td>1.520000</td>
+<td>2.905000</td>
+<td>0.150000</td>
+<td>0.200000</td>
+<td>16.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>1.110000</td>
+<td>1.880000</td>
+<td>0.000000</td>
+<td>0.024000</td>
+<td>0.000000</td>
+<td>0.010000</td>
+<td>0.000000</td>
+<td>0.029000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>1.670000</td>
+<td>4.830000</td>
+<td>4.543000</td>
+<td>2.150000</td>
+<td>1.850000</td>
+<td>47.000000</td>
+<td>1.300000</td>
+<td>0.500000</td>
+<td>0.330000</td>
+<td>0.000000</td>
+<td>...</td>
+<td>4.290000</td>
+<td>4.440000</td>
+<td>4.380000</td>
+<td>3.240000</td>
+<td>0.600500</td>
+<td>1.075500</td>
+<td>0.439000</td>
+<td>0.329000</td>
+<td>0.112000</td>
+<td>0.054500</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>4.220000</td>
+<td>6.240000</td>
+<td>5.681000</td>
+<td>6.650000</td>
+<td>2.800000</td>
+<td>83.000000</td>
+<td>2.600000</td>
+<td>1.000000</td>
+<td>0.330000</td>
+<td>0.000000</td>
+<td>...</td>
+<td>5.360000</td>
+<td>5.560000</td>
+<td>5.000000</td>
+<td>5.880000</td>
+<td>0.918000</td>
+<td>1.314000</td>
+<td>0.635000</td>
+<td>0.504000</td>
+<td>0.175000</td>
+<td>0.097000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>7.725000</td>
+<td>7.595000</td>
+<td>6.383500</td>
+<td>12.745000</td>
+<td>4.350000</td>
+<td>94.000000</td>
+<td>4.450000</td>
+<td>1.000000</td>
+<td>0.670000</td>
+<td>0.500000</td>
+<td>...</td>
+<td>7.140000</td>
+<td>6.670000</td>
+<td>6.250000</td>
+<td>8.240000</td>
+<td>1.188000</td>
+<td>1.470000</td>
+<td>0.765000</td>
+<td>0.570500</td>
+<td>0.263000</td>
+<td>0.136000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>10.000000</td>
+<td>9.260000</td>
+<td>7.632000</td>
+<td>24.740000</td>
+<td>8.300000</td>
+<td>100.000000</td>
+<td>8.800000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>...</td>
+<td>9.640000</td>
+<td>8.890000</td>
+<td>10.000000</td>
+<td>10.000000</td>
+<td>1.474000</td>
+<td>1.644000</td>
+<td>1.030000</td>
+<td>0.724000</td>
+<td>0.392000</td>
+<td>0.444000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<p>In the above dataframes, I utilized the Pandas DataFrame method ‘.dropna()’ to remove rows or records which contain atleast one missing value. However, I decided upon viewing the leaving the missing values in the rows of my dataset for my analysis, since dropping records can drastically reduce the data, but also because removing NaN values can potentially introduce bias if the missing data is not random. Moreover, I could lose information that could be valuable to my analysis. For example, removing NaN values removes columns such as ‘continent,’ ‘country,’ ‘Predom. Religion,’ and ‘Religiosity Level,’ to name a few. Thus, I will leave the summary statistics dataframe for visualization purposes to display what it looks like to drop the columns with missing values.</p>
+<p>In the following plot, I was interested in exploring the variables ‘Religiosity’ and ‘HAPPINESS’ from the above dataset. I decided upon a scatter plot since scatter plots visually display the relationship between two variables and indicate potential patterns, clusters, or trends that may exist between one another.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'Religiosity'</span>]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'HAPPINESS'</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(x,y)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Religiosity'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HAPPINESS'</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relationship between Levels of Religiosity and Happiness'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>From the above plot, we can see that the relationship between religiosity and happiness in each continent shows a weak negative correlation. Meaning, as variable ‘Religiosity’ increases, the variable ‘HAPPINESS’ is decreasing, and the points are not tightly clustered in a linear shape. This could mean that the relationship between happiness and religiosity in each continent vary from country to country and does not display obvious associations between the two variables by the scatter plot.</p>
+<p>In the following plot, I decided to visualize what it would look like to display values using the Pandas DataFrame method ‘.dropna()’. This new plot I designed shows me a fewer plots than the plot above, and similarly shows a weak or weak negative correlation.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df_records_dropped[<span class="st">'Religiosity'</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_records_dropped[<span class="st">'HAPPINESS'</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(x,y)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Religiosity'</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HAPPINESS'</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relationship between Levels of Religiosity and Happiness'</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Below I am creating a subset of the dataframe in order to reduce complexity and focus on specific aspects of the data. While viewing the entire dataset may be useful at first glance, creating visualizations using a subset of the dataframe can enhance the focus, clarity, and effectiveness of visualizations.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> df[<span class="dv">0</span>:<span class="dv">25</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">continent</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">Predom. Religion</th>
+<th data-quarto-table-cell-role="th">SOGI-LI</th>
+<th data-quarto-table-cell-role="th">DEMOC.</th>
+<th data-quarto-table-cell-role="th">HAPPINESS</th>
+<th data-quarto-table-cell-role="th">Per capita GDP</th>
+<th data-quarto-table-cell-role="th">% with tertiary educ.</th>
+<th data-quarto-table-cell-role="th">GRI</th>
+<th data-quarto-table-cell-role="th">Religiosity</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">polit. Particpation</th>
+<th data-quarto-table-cell-role="th">political culture</th>
+<th data-quarto-table-cell-role="th">civil liberties</th>
+<th data-quarto-table-cell-role="th">Satisfaction with GDP per capita</th>
+<th data-quarto-table-cell-role="th">Social support</th>
+<th data-quarto-table-cell-role="th">Healthy life expectancy</th>
+<th data-quarto-table-cell-role="th">Freedom to make life choices</th>
+<th data-quarto-table-cell-role="th">Generosity</th>
+<th data-quarto-table-cell-role="th">Perceptions of corruption</th>
+<th data-quarto-table-cell-role="th">Religiosity Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>africa</td>
+<td>Zimbabwe</td>
+<td>C</td>
+<td>0.42</td>
+<td>3.16</td>
+<td>3.692</td>
+<td>$2,147.00</td>
+<td>0.38</td>
+<td>2.8</td>
+<td>88.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>2.50</td>
+<td>3.24</td>
+<td>1.151</td>
+<td>1.479</td>
+<td>0.599</td>
+<td>0.399</td>
+<td>0.065</td>
+<td>0.025</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>africa</td>
+<td>Zambia</td>
+<td>C</td>
+<td>0.97</td>
+<td>5.61</td>
+<td>4.377</td>
+<td>$1,539.90</td>
+<td>0.49</td>
+<td>3.2</td>
+<td>95.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.493</td>
+<td>1.048</td>
+<td>0.454</td>
+<td>0.504</td>
+<td>0.352</td>
+<td>0.055</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>asia</td>
+<td>Yemen</td>
+<td>M</td>
+<td>0.56</td>
+<td>1.95</td>
+<td>3.355</td>
+<td>$944.41</td>
+<td>1.50</td>
+<td>4.7</td>
+<td>99.0</td>
+<td>...</td>
+<td>3.89</td>
+<td>5.63</td>
+<td>3.24</td>
+<td>0.357</td>
+<td>1.094</td>
+<td>0.248</td>
+<td>0.406</td>
+<td>0.132</td>
+<td>0.099</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>asia</td>
+<td>Vietnam</td>
+<td>X</td>
+<td>3.89</td>
+<td>3.08</td>
+<td>5.103</td>
+<td>$2,563.82</td>
+<td>3.27</td>
+<td>7.6</td>
+<td>30.0</td>
+<td>...</td>
+<td>3.21</td>
+<td>3.75</td>
+<td>4.41</td>
+<td>0.689</td>
+<td>1.172</td>
+<td>0.048</td>
+<td>0.462</td>
+<td>0.201</td>
+<td>0.032</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>america</td>
+<td>Venezuela</td>
+<td>C</td>
+<td>2.83</td>
+<td>3.16</td>
+<td>4.806</td>
+<td>NaN</td>
+<td>2.96</td>
+<td>3.9</td>
+<td>79.0</td>
+<td>...</td>
+<td>4.44</td>
+<td>5.00</td>
+<td>2.94</td>
+<td>0.985</td>
+<td>1.350</td>
+<td>0.553</td>
+<td>0.496</td>
+<td>0.116</td>
+<td>0.148</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>oceana</td>
+<td>Vanuatu</td>
+<td>C</td>
+<td>3.89</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$3,033.41</td>
+<td>NaN</td>
+<td>1.5</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>0.000</td>
+<td>0.712</td>
+<td>0.115</td>
+<td>0.674</td>
+<td>0.238</td>
+<td>0.282</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>asia</td>
+<td>Uzbekistan</td>
+<td>M</td>
+<td>0.97</td>
+<td>2.01</td>
+<td>6.096</td>
+<td>$1,532.37</td>
+<td>NaN</td>
+<td>8.0</td>
+<td>59.0</td>
+<td>...</td>
+<td>2.22</td>
+<td>5.63</td>
+<td>3.82</td>
+<td>1.649</td>
+<td>1.303</td>
+<td>0.748</td>
+<td>0.654</td>
+<td>0.256</td>
+<td>0.171</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>america</td>
+<td>Uruguay</td>
+<td>C</td>
+<td>8.50</td>
+<td>8.38</td>
+<td>6.379</td>
+<td>$17,277.97</td>
+<td>3.50</td>
+<td>1.1</td>
+<td>41.0</td>
+<td>...</td>
+<td>6.11</td>
+<td>2.50</td>
+<td>3.82</td>
+<td>0.332</td>
+<td>0.537</td>
+<td>0.255</td>
+<td>0.085</td>
+<td>0.191</td>
+<td>0.036</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>america</td>
+<td>United States</td>
+<td>C</td>
+<td>6.60</td>
+<td>7.96</td>
+<td>6.886</td>
+<td>$62,641.01</td>
+<td>26.76</td>
+<td>3.3</td>
+<td>69.0</td>
+<td>...</td>
+<td>7.78</td>
+<td>5.00</td>
+<td>2.65</td>
+<td>2.096</td>
+<td>0.776</td>
+<td>0.670</td>
+<td>0.284</td>
+<td>0.186</td>
+<td>NaN</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>europe</td>
+<td>United Kingdom</td>
+<td>C</td>
+<td>10.00</td>
+<td>8.53</td>
+<td>6.814</td>
+<td>$42,491.36</td>
+<td>15.31</td>
+<td>2.6</td>
+<td>27.0</td>
+<td>...</td>
+<td>8.33</td>
+<td>5.00</td>
+<td>0.88</td>
+<td>0.442</td>
+<td>1.073</td>
+<td>0.343</td>
+<td>0.244</td>
+<td>0.083</td>
+<td>0.064</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>asia</td>
+<td>United Arab Emirates</td>
+<td>M</td>
+<td>0.56</td>
+<td>2.76</td>
+<td>6.774</td>
+<td>$43,004.95</td>
+<td>8.54</td>
+<td>5.8</td>
+<td>91.0</td>
+<td>...</td>
+<td>2.22</td>
+<td>3.13</td>
+<td>1.47</td>
+<td>1.379</td>
+<td>1.331</td>
+<td>0.633</td>
+<td>0.509</td>
+<td>0.098</td>
+<td>0.127</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>europe</td>
+<td>Ukraine</td>
+<td>C</td>
+<td>3.67</td>
+<td>5.69</td>
+<td>4.103</td>
+<td>$3,095.17</td>
+<td>24.55</td>
+<td>3.8</td>
+<td>46.0</td>
+<td>...</td>
+<td>6.67</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>oceana</td>
+<td>Tuvalu</td>
+<td>C</td>
+<td>1.39</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$3,700.71</td>
+<td>NaN</td>
+<td>2.0</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>3.13</td>
+<td>2.35</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>nonreligious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>asia</td>
+<td>Turkmenistan</td>
+<td>M</td>
+<td>0.97</td>
+<td>1.72</td>
+<td>5.636</td>
+<td>$6,966.64</td>
+<td>NaN</td>
+<td>7.9</td>
+<td>80.0</td>
+<td>...</td>
+<td>2.22</td>
+<td>6.25</td>
+<td>8.53</td>
+<td>0.819</td>
+<td>1.493</td>
+<td>0.693</td>
+<td>0.575</td>
+<td>0.096</td>
+<td>0.031</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>asia</td>
+<td>Turkey</td>
+<td>M</td>
+<td>3.06</td>
+<td>4.37</td>
+<td>5.483</td>
+<td>$9,311.37</td>
+<td>5.28</td>
+<td>7.1</td>
+<td>82.0</td>
+<td>...</td>
+<td>5.00</td>
+<td>6.25</td>
+<td>5.88</td>
+<td>0.900</td>
+<td>0.906</td>
+<td>0.690</td>
+<td>0.271</td>
+<td>0.040</td>
+<td>0.063</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>africa</td>
+<td>Tunisia</td>
+<td>M</td>
+<td>0.97</td>
+<td>6.41</td>
+<td>4.592</td>
+<td>$3,446.61</td>
+<td>7.38</td>
+<td>NaN</td>
+<td>93.0</td>
+<td>...</td>
+<td>7.78</td>
+<td>6.25</td>
+<td>6.47</td>
+<td>0.429</td>
+<td>1.117</td>
+<td>0.433</td>
+<td>0.406</td>
+<td>0.138</td>
+<td>0.082</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>america</td>
+<td>Trinidad and Tobago</td>
+<td>X</td>
+<td>2.22</td>
+<td>7.16</td>
+<td>NaN</td>
+<td>$16,843.70</td>
+<td>6.48</td>
+<td>0.8</td>
+<td>92.0</td>
+<td>...</td>
+<td>6.11</td>
+<td>6.88</td>
+<td>6.47</td>
+<td>0.562</td>
+<td>1.047</td>
+<td>0.295</td>
+<td>0.503</td>
+<td>0.221</td>
+<td>0.082</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>oceana</td>
+<td>Tonga</td>
+<td>C</td>
+<td>1.39</td>
+<td>NaN</td>
+<td>6.192</td>
+<td>$4,364.02</td>
+<td>2.91</td>
+<td>1.6</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>6.25</td>
+<td>5.88</td>
+<td>0.186</td>
+<td>0.541</td>
+<td>0.306</td>
+<td>0.531</td>
+<td>0.210</td>
+<td>0.080</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>africa</td>
+<td>Togo</td>
+<td>X</td>
+<td>0.97</td>
+<td>3.10</td>
+<td>3.999</td>
+<td>$671.84</td>
+<td>1.51</td>
+<td>2.1</td>
+<td>80.0</td>
+<td>...</td>
+<td>3.33</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.455</td>
+<td>0.991</td>
+<td>0.381</td>
+<td>0.481</td>
+<td>0.270</td>
+<td>0.097</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>africa</td>
+<td>The Gambia</td>
+<td>M</td>
+<td>0.97</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>$712.45</td>
+<td>NaN</td>
+<td>0.7</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>5.63</td>
+<td>5.59</td>
+<td>0.076</td>
+<td>0.858</td>
+<td>0.267</td>
+<td>0.419</td>
+<td>0.206</td>
+<td>0.030</td>
+<td>nonreligious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>america</td>
+<td>The Bahamas</td>
+<td>C</td>
+<td>3.06</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>...</td>
+<td>NaN</td>
+<td>5.63</td>
+<td>4.41</td>
+<td>0.779</td>
+<td>0.797</td>
+<td>0.669</td>
+<td>0.460</td>
+<td>0.026</td>
+<td>0.074</td>
+<td>nonreligious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>asia</td>
+<td>Thailand</td>
+<td>B</td>
+<td>6.25</td>
+<td>4.63</td>
+<td>6.072</td>
+<td>$7,273.56</td>
+<td>10.47</td>
+<td>3.4</td>
+<td>97.0</td>
+<td>...</td>
+<td>5.00</td>
+<td>3.75</td>
+<td>2.94</td>
+<td>0.885</td>
+<td>1.025</td>
+<td>0.553</td>
+<td>0.312</td>
+<td>0.092</td>
+<td>0.107</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>africa</td>
+<td>Tanzania</td>
+<td>C</td>
+<td>0.97</td>
+<td>5.41</td>
+<td>3.303</td>
+<td>$1,050.68</td>
+<td>0.36</td>
+<td>4.7</td>
+<td>89.0</td>
+<td>...</td>
+<td>5.00</td>
+<td>5.00</td>
+<td>2.65</td>
+<td>0.308</td>
+<td>0.950</td>
+<td>0.391</td>
+<td>0.452</td>
+<td>0.220</td>
+<td>0.146</td>
+<td>religious</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>asia</td>
+<td>Tajikistan</td>
+<td>M</td>
+<td>3.05</td>
+<td>1.93</td>
+<td>5.199</td>
+<td>$826.62</td>
+<td>3.74</td>
+<td>7.5</td>
+<td>85.0</td>
+<td>...</td>
+<td>1.67</td>
+<td>4.38</td>
+<td>2.65</td>
+<td>0.535</td>
+<td>0.891</td>
+<td>0.182</td>
+<td>0.454</td>
+<td>0.183</td>
+<td>0.043</td>
+<td>religious</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>asia</td>
+<td>Taiwan</td>
+<td>B</td>
+<td>6.17</td>
+<td>7.73</td>
+<td>6.441</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.7</td>
+<td>45.0</td>
+<td>...</td>
+<td>6.11</td>
+<td>4.38</td>
+<td>2.94</td>
+<td>0.344</td>
+<td>0.792</td>
+<td>0.211</td>
+<td>0.394</td>
+<td>0.185</td>
+<td>0.094</td>
+<td>nonreligious</td>
+</tr>
+</tbody>
+</table>
+
+<p>25 rows × 30 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b.plot (x <span class="op">=</span> <span class="st">'Religiosity'</span>, y <span class="op">=</span> <span class="st">'HAPPINESS'</span>, kind <span class="op">=</span> <span class="st">'scatter'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Religiosity'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HAPPINESS'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relationship between Levels of Religiosity and Happiness'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>In the above scatter plot for a subset of the data (i.e., the first 25 rows), we can see the levels of religiosity and happiness has a strongly weak negative correlation or no correlation, at all. This further indicates that religiosity levels alone are not a strong predictor of happiness country to country.</p>
+<p>Below I decided upon using the entire dataframe rather than a subset of the plot, since the subset could possibly lead to a loss of context, potentially leading to misinterpretation. Moreover, if the subset is not representative of the entire dataset, the visualizations may not represent the true characteristics of the data. For example, we can see that the subset of the dataframe titled ‘b’ excludes the continent ‘antarctica’ that is included in the regular dataframe.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df.plot (x <span class="op">=</span> <span class="st">'SOGI-LI'</span>, y <span class="op">=</span> <span class="st">'HAPPINESS'</span>, kind <span class="op">=</span> <span class="st">'scatter'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'SOGI-LI'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HAPPINESS'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relationship between increased levels of SOGI-LI Freedoms and Happiness'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>In the above plot, we can see a weak positive correlation between increased SOGI-LI freedoms and happiness levels. Meaning, as both variables tend to increase in response to one another, their relationship is not very strong. In terms of the dataset, this means that the higher a continents SOGI-LI (i.e., Sexual Orientation and Gender Identity) index score is, the higher their levels of happiness, but their relationship also varies depending on other variables country to country.</p>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis">Data Analysis</h3>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> df[<span class="st">'SOGI-LI'</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df[<span class="st">'DEMOC.'</span>]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'SOGI-LI'</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'DEMOC.'</span>)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relationship between increased levels of SOGI-LI Freedoms and Democracy Levels'</span>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Above is a scatter plot that displays the relationship between increased levels of SOGI-LI freedoms and democracy levels by country. We can see that the scatter plot between ‘SOGI-LI’ index scores and ‘DEMOC.’ scores display a positive correlation or weak positive correlation, with SOGI-LI scores increasing in response to democracy increasing. This is in line with my initial hypothesis, where I claim that sexual orientation and gender identity freedoms raise significantly higher if democracy levels for a country are high, as well. More importantly, it illustrates how more democratic nations allow people equal rights to move safely and freely from discrimination. Democratic nations are typically founded on principles of human rights, equality, and individual freedoms for all. These values encourage the protection of rights for LGBTQ+ people, and prevent discrimination, further ensuring equal treatment under the rule of law.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> b[<span class="st">'country'</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> b[<span class="st">'SOGI-LI'</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> b[<span class="st">'Religiosity'</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.bar(countries, y, label<span class="op">=</span><span class="st">'Religiosity'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.plot(countries, x, marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'SOGI-LI'</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Countries'</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comparison of Religiosity and Increased SOGI-LI'</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Final_Project-Copy1_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Above is a bar plot that displays a comparison of religiosity to increased SOGI-LI index scores. The x-axis is representative of each country from the subset of the data, which gives us a snapshot of the dataset used in the exploratory phase. I decided to use the subset of the data in order to accurately display the continents and the way religiosity compares to increased sexual orientation and gender identity. In the plot, we can see that countries with higher rates of religiosity typically display lower sexual orientation and gender identity freedoms. For example, countries like Zimbabwe and Yemen display a significant decrease in SOGI-LI index scores than the United Kingdom and United States. However, Thailand also displays high levels of religiosity but higher levels of SOGI-LI index scores. This could mean that, although higher rates of religiosity typically mean lower SOGI-LI index scores in most countries, the relationship between religiosity and SOGI freedoms may be influenced by cultural factors. For example, Thailand may have more inclusive policies due to historical and cultural practices that support acceptance of different identities. This observation is in line with an article by Reuters, which states that Thailand has one of Asia’s most open and visible lesbian, gay, bisexual and transgender (LGBT) communities https://www.reuters.com/world/asia-pacific/thailand-edges-closer-legalising-same-sex-unions-2022-06-15/.</p>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>After using Python’s matplotlib and pandas libraries for analysis, this project was meant to study the impact of religiosity and democracy levels on sexual orientation and gender freedoms on a global scale. I aim to analyze the relationship between high levels of religiosity and democracy on sexual orientation and gender identity levels – that is, if the two are positively or negatively correlated. These findings are helpful because they help unveil the complexities of the relationships between groups of religiosity and levels of democracy to a country’s SOGI score. For democracy levels, I was able to ascertain that higher rates of sexual orientation and gender identity freedoms positively correlate to more democratic nations. This finding aligns with the fact that democratic societies are generally founded on human rights principles, pushing values that encourage the protection of rights for all individuals, regardless of their sexual orientation or gender identity. However, it is essential to note that although a general positive correlation exists between democracy and high rates of SOGI freedoms, this relationship is complex and may not always be accurate. For example, some democratic nations may have significant obstacles in ensuring safety and protection for LGBTQ+ individuals, while non-democratic nations are more progressive. Moreover, it is critical to consider a country’s historical, social, and cultural factors comprising its sexual orientation and gender identity (SOGI) index score. For comparing religiosity with increased SOGI-LI scores, I found that higher rates of religiosity typically display lower SOGI-LI scores from country to country. However, I noticed that Thailand showed a higher SOGI-LI score than other countries with higher rates of religiosity, underscoring how a country’s attitude to SOGI freedoms, regardless of high rates of religiosity, could be influenced by inclusive cultural practices and historical factors that are more accepting of LGBTQ+ people. It is essential to see these nuances in data because countries vary widely in their acceptance of sexual orientation and gender identity freedoms.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
